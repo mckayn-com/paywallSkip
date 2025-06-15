@@ -39,7 +39,7 @@ export default function AdvertisePage() {
         throw new Error("Failed to submit form")
       }
 
-      toast.success("Got it! we'll email you back soon.")
+      toast.success("Got it! we&apos;ll email you back soon.")
       setFormData({
         name: "",
         email: "",
@@ -139,7 +139,7 @@ export default function AdvertisePage() {
         </div>
 
         <div className="border-2 border-dashed border-gray-400 p-8 bg-gray-50">
-          <h3 className="text-xl font-bold mb-6 text-black">let's talk</h3>
+          <h3 className="text-xl font-bold mb-6 text-black">let&apos;s talk</h3>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -222,7 +222,7 @@ export default function AdvertisePage() {
         {/* Footer note */}
         <div className="text-center mt-12">
           <div className="inline-block border-2 border-dashed border-gray-400 bg-gray-50 px-4 py-2">
-            <span className="text-gray-600 text-sm">we'll get back to you within 24 hours</span>
+            <span className="text-gray-600 text-sm">we&apos;ll get back to you within 24 hours</span>
           </div>
         </div>
       </div>
