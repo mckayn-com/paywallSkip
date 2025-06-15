@@ -7,25 +7,28 @@ import {
 } from "@/components/ui/accordion";
 import Header from "@/components/header";
 import LandingFormSection from "@/components/landing-form-section";
-import BuyMeACoffe from "@/components/buy-me-a-coffe";
 import PricingComparisonSection from "@/components/pricing-comparison-section";
-import { getTotalSuccessRate } from "@/lib/helpers/success-rate";
-import { Badge } from "@/components/ui/badge";
 
 export default async function Page() {
   return (
     <div className="flex flex-col min-h-screen bg-stone-50">
       <Header />
-      <BuyMeACoffe />
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-26 xl:py-28">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-8 text-center">
-              {/* {overallSuccessRate > 0 && (
-                <Badge className="rounded-md px-3 bg-stone-800 hover:bg-stone-700 shadow">
-                  {overallSuccessRate.toFixed()}% Success Rate
-                </Badge>
-              )} */}
+
+            <Link href="/advertise" className="block w-full capitalize py-4 border-dashed border bg-stone-100 hover:bg-stone-200 transition-colors">
+          <div className="container px-4 md:px-6">
+            <div className="flex items-center justify-center">
+              <div>
+                <h3 className="text-lg font-semibold text-stone-800">Advertise with us</h3>
+                <h2 className="font-medium animate-pulse">Your company name here</h2>
+                <p className="text-stone-600">Reach more than 20,000 monthly active users</p>
+              </div>
+            </div>
+          </div>
+        </Link>
               <div className="space-y-4">
                 <div className="bg-gradient-to-b py-2 from-stone-500 to-stone-800 bg-clip-text text-transparent">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
@@ -42,6 +45,7 @@ export default async function Page() {
           </div>
         </section>
         <PricingComparisonSection />
+
         <section className="w-full py-12 md:py-24 lg:py-32 bg-stone-50">
           <div className="container px-4 md:px-6">
             <h2 className="text-2xl font-bold text-center mb-8 text-stone-800">

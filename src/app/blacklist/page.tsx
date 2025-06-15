@@ -40,7 +40,7 @@ export default async function Page({
         >
           <p className="font-bold">What is the blacklist?</p>
           <p>
-            The blacklist is a collection of websites where our Paywall Skipper
+            The blacklist is a collection of websites where our Paywall Skip
             is currently unable to bypass the paywall. We continuously work on
             improving our service, but these sites have implemented measures
             that prevent us from accessing their content.

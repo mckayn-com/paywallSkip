@@ -9,11 +9,11 @@ const karla = Karla({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "Paywall Skipper - Access News Without Limits",
-    template: "%s | Paywall Skipper",
+    default: "Paywall Skip - Access News Without Limits",
+    template: "%s | Paywall Skip",
   },
   description:
-    "Bypass paywalls and access premium content from various news sites and publications for free with Paywall Skipper.",
+    "Bypass paywalls and access premium content from various news sites and publications for free with Paywall Skip.",
   keywords: [
     "paywall bypass",
     "free news access",
@@ -22,13 +22,13 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Franco Canzani" }],
   creator: "Franco Canzani",
-  publisher: "Paywall Skipper",
+  publisher: "Paywall Skip",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://paywallskip.com",
-    siteName: "Paywall Skipper",
-    title: "Paywall Skipper - Access News Without Limits",
+    siteName: "Paywall Skip",
+    title: "Paywall Skip - Access News Without Limits",
     description:
       "Access premium news content without paywalls - free and easy.",
     images: [
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "https://paywallskip.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Paywall Skipper - Access News Without Limits",
+        alt: "Paywall Skip - Access News Without Limits",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Paywall Skipper - Access News Without Limits",
+    title: "Paywall Skip - Access News Without Limits",
     description:
       "Access premium news content without paywalls - free and easy.",
     images: ["https://paywallskip.com/opengraph-image"],
@@ -79,7 +79,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={karla.className}>
         {children}
-        <Toaster richColors />
+        <Toaster />
         <Script id="schema-org" type="application/ld+json">
           {`
             {

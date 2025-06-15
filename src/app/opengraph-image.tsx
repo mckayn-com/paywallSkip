@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
-export const alt = 'Paywall Skipper - Access News Without Limits';
+export const alt = 'Paywall Skip - Access News Without Limits';
 export const size = {
   width: 1200,
   height: 630,
