@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowUp } from "lucide-react";
 import Link from "next/link";
 
@@ -8,46 +7,78 @@ export default function Header({
   showAnchor?: boolean;
 }) {
   return (
-    <header className="px-4 lg:px-6 h-14 flex items-center">
-      <Link className="flex items-center justify-center" href="/" id="anchor">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1.2rem"
-          height="1.2rem"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M3 16h9v5H3zm-1-6h6v5H2zm7 0h6v5H9zm7 0h6v5h-6zm-3 6h8v5h-8zM3 4h8v5H3zm9 0h9v5h-9z"
-          />
-        </svg>
-        <span className="ml-1.5 text-lg font-bold text-stone-800">
-          PaywallSkip
-        </span>
-      </Link>
-      <nav className="ml-auto flex gap-4 sm:gap-6">
-        <Link
-          className="text-sm font-medium hover:underline underline-offset-4 text-stone-700"
-          href="/posts/how-it-works"
-        >
-          How It Works
+    <>
+      {/* Freecash Promotional Banner */}
+      <div className="sticky top-0 z-50 bg-green-600 text-white py-2 px-4">
+        <div className="max-w-6xl mx-auto">
+          <a
+            href="https://wfh.redditlists.com/paywallskip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block hover:opacity-90 transition-opacity duration-200"
+          >
+            <div className="text-center space-y-1">
+              <div className="text-sm">
+                <span className="text-white/90">Paywalls:</span>
+                <span className="text-yellow-100 font-semibold">
+                  {" "}
+                  &ldquo;That&rsquo;ll be $1 for 1 article.&rdquo;
+                </span>
+              </div>
+              <div className="text-sm">
+                <span className="text-white/90">Freecash:</span>
+                <span className="text-yellow-100 font-semibold">
+                  {" "}
+                  &ldquo;Here&rsquo;s $5 for doing literally anything
+                  online.&rdquo;
+                </span>
+              </div>
+              <div className="text-base font-semibold text-white">
+                Stop paying to read.{" "}
+                <span className="bg-white text-green-600 px-2 py-0.5 rounded text-sm">
+                  Start earning for scrolling → Freecash.com
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <header className="px-4 lg:px-6 h-14 flex items-center">
+        <Link className="flex items-center justify-center" href="/" id="anchor">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1.2rem"
+            height="1.2rem"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M3 16h9v5H3zm-1-6h6v5H2zm7 0h6v5H9zm7 0h6v5h-6zm-3 6h8v5h-8zM3 4h8v5H3zm9 0h9v5h-9z"
+            />
+          </svg>
+          <span className="ml-1.5 text-lg font-bold text-stone-800">
+            PaywallSkip
+          </span>
         </Link>
-        <Link
-          className="text-sm font-medium hover:underline underline-offset-4 text-stone-700"
-          href="/blacklist"
-        >
-          Blacklist
-        </Link>
-      </nav>
-      {showAnchor && (
-        <a
-          href="#anchor"
-          className="fixed bottom-2 right-2 bg-stone-800 text-white p-0.5 rounded-full"
-        >
-          <ArrowUp size={16} />
-          <span className="sr-only">Scroll to top</span>
-        </a>
-      )}
-    </header>
+        <nav className="ml-auto flex gap-4 sm:gap-6">
+          <Link
+            className="text-sm font-medium hover:underline underline-offset-4 text-stone-700"
+            href="/posts/how-it-works"
+          >
+            How It Works
+          </Link>
+        </nav>
+        {showAnchor && (
+          <a
+            href="#anchor"
+            className="fixed bottom-2 right-2 bg-stone-800 text-white p-0.5 rounded-full"
+          >
+            <ArrowUp size={16} />
+            <span className="sr-only">Scroll to top</span>
+          </a>
+        )}
+      </header>
+    </>
   );
 }

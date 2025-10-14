@@ -1,19 +1,16 @@
 "use server";
 
-import { JSDOM } from "jsdom";
 import { Readability } from "@mozilla/readability";
+import { JSDOM } from "jsdom";
+import { z } from "zod";
+import { REFERERS, USER_AGENTS } from "../constants";
+import { ArticleSchema } from "../schemas";
 import {
   fixImageSources,
   fixLinks,
   preserveVideos,
   reinsertVideos,
 } from "./handle-media";
-import { z } from "zod";
-import { checkRateLimit } from "./check-rate-limit";
-import { ArticleSchema } from "../schemas";
-import { getClientIP } from "./get-client-ip";
-import { USER_AGENTS, REFERERS } from "../constants";
-import { incrementFailureCount, incrementSuccessCount } from "./success-rate";
 
 type Article = z.infer<typeof ArticleSchema>;
 
@@ -25,7 +22,7 @@ interface ArticleResponse {
 async function fetchWithTimeout(
   url: string,
   options: RequestInit,
-  timeout: number
+  timeout: number,
 ): Promise<Response> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), timeout);
@@ -52,7 +49,7 @@ async function tryFetchWithUserAgents(url: string): Promise<string> {
         {
           headers: { "User-Agent": userAgent },
         },
-        15000
+        15000,
       );
       return await response.text();
     } catch (error) {
@@ -73,7 +70,7 @@ async function tryFetchWithReferers(url: string): Promise<string> {
             Referer: referer,
           },
         },
-        15000
+        15000,
       );
       return await response.text();
     } catch (error) {
@@ -91,7 +88,7 @@ async function tryFetchFromArchives(url: string): Promise<string> {
       {
         headers: { "User-Agent": USER_AGENTS.default },
       },
-      20000
+      20000,
     );
     return await response.text();
   } catch (error) {
@@ -111,7 +108,7 @@ async function tryFetchFromArchives(url: string): Promise<string> {
         {
           headers: { "User-Agent": USER_AGENTS.default },
         },
-        20000
+        20000,
       );
       return await response.text();
     } catch (error) {
@@ -123,14 +120,6 @@ async function tryFetchFromArchives(url: string): Promise<string> {
 }
 
 export async function getArticleContent(url: string): Promise<ArticleResponse> {
-  const clientIP = getClientIP();
-  const isAllowed = true;
-  // replaces checkratelimit
-
-  if (!isAllowed) {
-    return { error: "Rate limit exceeded. Please try again later." };
-  }
-
   try {
     let html: string;
     const urlHostname = new URL(url).hostname;
@@ -139,33 +128,27 @@ export async function getArticleContent(url: string): Promise<ArticleResponse> {
     if (urlHostname === "www.bloomberg.com") {
       try {
         html = await tryFetchFromArchives(url);
-        await incrementSuccessCount(url);
       } catch (error) {
         console.log(
-          "Failed to fetch Bloomberg article from archives, trying other methods"
+          "Failed to fetch Bloomberg article from archives, trying other methods",
         );
         try {
           html = await tryFetchWithUserAgents(url);
-          await incrementSuccessCount(url);
         } catch (error) {
           html = await tryFetchWithReferers(url);
-          await incrementSuccessCount(url);
         }
       }
     } else {
       // For non-Bloomberg URLs, use the original order
       try {
         html = await tryFetchWithUserAgents(url);
-        await incrementSuccessCount(url);
       } catch (error) {
         console.log("Failed with user agents, trying referers");
         try {
           html = await tryFetchWithReferers(url);
-          await incrementSuccessCount(url);
         } catch (error) {
           console.log("Failed with referers, trying archives");
           html = await tryFetchFromArchives(url);
-          await incrementSuccessCount(url);
         }
       }
     }
@@ -181,7 +164,6 @@ export async function getArticleContent(url: string): Promise<ArticleResponse> {
     const article = reader.parse();
 
     if (!article) {
-      await incrementFailureCount(url);
       throw new Error("Failed to extract article content");
     }
 
@@ -202,7 +184,6 @@ export async function getArticleContent(url: string): Promise<ArticleResponse> {
 
     return { article: validatedArticle };
   } catch (err) {
-    await incrementFailureCount(url);
     let errorMessage: string;
 
     if (err instanceof z.ZodError) {
