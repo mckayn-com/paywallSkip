@@ -8,35 +8,26 @@ export default function Header({
 }) {
   return (
     <>
-      {/* Freecash Promotional Banner */}
-      <div className="sticky top-0 z-50 bg-green-600 text-white py-2 px-4">
-        <div className="max-w-6xl mx-auto">
+      {/* SaasList.io Promotional Banner */}
+      <div className="sticky top-0 z-50 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4">
           <a
-            href="https://wfh.redditlists.com/paywallskip"
+            href="https://saaslist.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="block hover:opacity-90 transition-opacity duration-200"
+            className="block group hover:opacity-95 transition-opacity"
           >
-            <div className="text-center space-y-1">
-              <div className="text-sm">
-                <span className="text-white/90">Paywalls:</span>
-                <span className="text-yellow-100 font-semibold">
-                  {" "}
-                  &ldquo;That&rsquo;ll be $1 for 1 article.&rdquo;
+            <div className="flex items-center justify-center gap-3 py-3">
+              <div className="flex items-center gap-2.5 flex-wrap justify-center">
+                <span className="text-sm font-semibold text-white">
+                  🚀 New way to discover SaaS
                 </span>
-              </div>
-              <div className="text-sm">
-                <span className="text-white/90">Freecash:</span>
-                <span className="text-yellow-100 font-semibold">
-                  {" "}
-                  &ldquo;Here&rsquo;s $5 for doing literally anything
-                  online.&rdquo;
+                <span className="hidden sm:inline text-white/60 text-xs">•</span>
+                <span className="text-sm font-bold text-white tracking-tight">
+                  SaasList.io
                 </span>
-              </div>
-              <div className="text-base font-semibold text-white">
-                Stop paying to read.{" "}
-                <span className="bg-white text-green-600 px-2 py-0.5 rounded text-sm">
-                  Start earning for scrolling → Freecash.com
+                <span className="text-white/90 group-hover:text-white group-hover:translate-x-0.5 transition-all text-sm font-semibold">
+                  →
                 </span>
               </div>
             </div>
