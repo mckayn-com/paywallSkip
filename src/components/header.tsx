@@ -8,33 +8,6 @@ export default function Header({
 }) {
   return (
     <>
-      {/* SaasList.io Promotional Banner */}
-      <div className="sticky top-0 z-50 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4">
-          <a
-            href="https://saaslist.io"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group hover:opacity-95 transition-opacity"
-          >
-            <div className="flex items-center justify-center gap-3 py-3">
-              <div className="flex items-center gap-2.5 flex-wrap justify-center">
-                <span className="text-sm font-semibold text-white">
-                  🚀 New way to discover SaaS
-                </span>
-                <span className="hidden sm:inline text-white/60 text-xs">•</span>
-                <span className="text-sm font-bold text-white tracking-tight">
-                  SaasList.io
-                </span>
-                <span className="text-white/90 group-hover:text-white group-hover:translate-x-0.5 transition-all text-sm font-semibold">
-                  →
-                </span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-
       <header className="px-4 lg:px-6 h-14 flex items-center">
         <Link className="flex items-center justify-center" href="/" id="anchor">
           <svg
