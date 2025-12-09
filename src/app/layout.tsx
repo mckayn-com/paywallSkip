@@ -77,6 +77,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <head>
+        <Script
+          async
+          strategy="afterInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={karla.className}>
         {children}
         <Toaster />
