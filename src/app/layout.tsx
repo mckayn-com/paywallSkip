@@ -83,7 +83,11 @@ export default function RootLayout({
       <body className={karla.className}>
         {children}
         <Toaster />
-        <AdsenseScript />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
+          crossOrigin="anonymous"
+        />
         <Script id="schema-org" type="application/ld+json">
           {`
             {
