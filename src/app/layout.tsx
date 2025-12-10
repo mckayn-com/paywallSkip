@@ -77,17 +77,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-       <head>
+     
+      <body className={karla.className}>
+        {children}
+        <Toaster />
         <Script
           async
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
           crossOrigin="anonymous"
         />
-      </head>
-      <body className={karla.className}>
-        {children}
-        <Toaster />
         <Script id="schema-org" type="application/ld+json">
           {`
             {
