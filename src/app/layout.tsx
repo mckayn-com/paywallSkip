@@ -4,6 +4,8 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import AdsenseScript from "@/components/AdsenseScript";
+
 
 const karla = Karla({ subsets: ["latin"] });
 
@@ -81,11 +83,7 @@ export default function RootLayout({
       <body className={karla.className}>
         {children}
         <Toaster />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
-          crossOrigin="anonymous"
-        />
+        <AdsenseScript />
         <Script id="schema-org" type="application/ld+json">
           {`
             {
