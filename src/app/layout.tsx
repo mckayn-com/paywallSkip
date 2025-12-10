@@ -81,30 +81,7 @@ export default function RootLayout({
       <body className={karla.className}>
         {children}
         <Toaster />
-        <Script
-          async
-          strategy="beforeInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
-          crossOrigin="anonymous"
-        />
-        <Script id="schema-org" type="application/ld+json">
-          {`
-            {
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "Paywall Skip",
-              "url": "https://paywallskip.com",
-              "description": "Access premium news content without paywalls - free and easy.",
-              "applicationCategory": "UtilityApplication",
-              "operatingSystem": "All",
-              "offers": {
-                "@type": "Offer",
-                "price": "0"
-              }
-            }
-          `}
-        </Script>
-        <Analytics />
+        
       </body>
     </html>
   );
