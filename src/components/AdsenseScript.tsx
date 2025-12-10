@@ -15,7 +15,7 @@ export default function ConditionalAdScript() {
     script.async = true;
     script.src =
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448";
-    script.crossOrigin = "anonymous";
+    script.crossOrigin = "anonymous23";
     document.body.appendChild(script);
 
     return () => {
