@@ -104,7 +104,7 @@ export default async function Page() {
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-stone-300">
         <p className="text-xs text-stone-500">
-          © 2025 PaywallSkip. All rights reserved.
+          © {new Date().getFullYear()} PaywallSkip. All rights reserved.
         </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link
