@@ -81,7 +81,25 @@ export default function RootLayout({
       <body className={karla.className}>
         {children}
         <Toaster />
-        
+       
+        <Script id="schema-org" type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "Paywall Skip",
+              "url": "https://paywallskip.com",
+              "description": "Access premium news content without paywalls - free and easy.",
+              "applicationCategory": "UtilityApplication",
+              "operatingSystem": "All",
+              "offers": {
+                "@type": "Offer",
+                "price": "0"
+              }
+            }
+          `}
+        </Script>
+        <Analytics />
       </body>
     </html>
   );
