@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import type { Metadata } from "next";
 import { Karla } from "next/font/google";
 import "./globals.css";
@@ -76,21 +77,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const h = new Headers();
-  const noAds = h.get("x-matched-path") === "/article";
+ const h = headers();
+  const matchedPath = h.get("x-matched-path") ?? h.get("x-url") ?? "";
+  const noAds = matchedPath === "/article";
   return (
     <html lang="en">
-     
+     <head>
+    {!noAds && (
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
+        crossOrigin="anonymous"
+      />
+    )}
+  </head>
       <body className={karla.className}>
         {children}
         <Toaster />
-         {!noAds && (
-          <Script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
-            crossOrigin="anonymous" 
-          />
-        )}
         <Script id="schema-org" type="application/ld+json">
           {`
             {
