@@ -4,7 +4,6 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
-import AdsenseScript from "@/components/AdsenseScript";
 
 
 const karla = Karla({ subsets: ["latin"] });
@@ -83,7 +82,6 @@ export default function RootLayout({
       <body className={karla.className}>
         {children}
         <Toaster />
-                <AdsenseScript />
         <Script id="schema-org" type="application/ld+json">
           {`
             {
