@@ -76,7 +76,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const h = headers();
+  const h = new Headers();
   const noAds = h.get("x-no-ads") === "1";
   return (
     <html lang="en">
