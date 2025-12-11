@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const h = new Headers();
-  const noAds = h.get("x-no-ads") === "1";
+  const noAds = h.get("x-matched-path") === "/article";
   return (
     <html lang="en">
      
