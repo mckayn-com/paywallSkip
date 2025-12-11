@@ -76,12 +76,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const h = headers();
+  const noAds = h.get("x-no-ads") === "1";
   return (
     <html lang="en">
      
       <body className={karla.className}>
         {children}
         <Toaster />
+         {!noAds && (
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7474815095793448"
+            crossOrigin="anonymous" 
+          />
+        )}
         <Script id="schema-org" type="application/ld+json">
           {`
             {
